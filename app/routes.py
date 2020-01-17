@@ -1,28 +1,17 @@
-from flask import Flask, render_template, url_for, request, redirect, flash
+from flask import render_template, url_for, request, redirect, flash
 from app import app
 from app.forms import NoteForm
-from app.models import Notes
-
-
 
 
 @app.route("/")
 @app.route("/index", methods=['GET', 'POST'])
 def index():
+    return render_template('index.html')
+
+@app.route("/note/new", methods=['GET', 'POST'])    
+def new_note():
     form = NoteForm()
     if form.validate_on_submit():
-        content = Notes(content=form.content.data)
-        db.session.add(content)
-        db.session.commit()
-        flash('Your note was created', 'success')
+        flash('Your note has been created!', 'success')
         return redirect(url_for('index'))
-    return render_template('index.html', form=form)
-
-
-
-
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    return render_template('create_note.html', title='New Note', form=form, legend='New Note')
