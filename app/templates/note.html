@@ -1,18 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-    {% for note in notes %}
          <article class="media content-section border-top">
-            
             <div class="media-body">
                 <div class="article-metadata">
-                    <h3><a class="article-title" href="{{ url_for('note', note_id=note.id) }}">{{ note.title }}</a></h3>
+                    <h3 class="article-title">{{ note.title }}</h3>
                     <small class="text-muted">{{ note.date_created.strftime('%Y-%m-%d') }}</small>
                     <p class="article-content">{{ note.content }}</p>
                 </div>
             </div>
             
          </article>
-    {% endfor %}
 {% endblock content %}
 
             
