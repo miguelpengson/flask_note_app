@@ -10,6 +10,10 @@ def index():
     notes = Notes.query.all()
     return render_template('index.html', notes=notes)
 
+@app.route("/about")
+def about():
+    return render_template('about.html')
+
 
 @app.route("/note/new", methods=['GET', 'POST'])    
 def new_note():
