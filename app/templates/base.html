@@ -24,7 +24,16 @@
                <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('about') }}">About</a>
             </li>
+            </li>
+            <!-- User Authentication -->
+            {% if current_user.is_authenticated %}
+
+            <li class="nav-item">
+            <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
+            <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </li>
            </ul> 
+           {% endif %}
         </div>
      </nav>   
      <div class="container" style="margin-top:20px;">
@@ -44,7 +53,7 @@
                 <!-- Content from other pages goes here -->
                 {% endblock content %}   
             </div>
-            <!-- Side -->
+            <!-- Side Cards -->
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-header d-flex justify-content-center"> 
