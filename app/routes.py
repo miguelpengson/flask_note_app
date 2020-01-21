@@ -1,6 +1,6 @@
 from flask import render_template, url_for, request, redirect, flash
 from app import app, db
-from app.forms import NoteForm
+from app.forms import NoteForm, RegistrationForm, LoginForm
 from app.models import Notes
 
 
@@ -13,6 +13,20 @@ def index():
 @app.route("/about")
 def about():
     return render_template('about.html')
+
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    return render_template('register.html', title='Register', form=form)
+
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    return render_template('login.html', title='Login', form=form)
+
+
+
 
 
 @app.route("/note/new", methods=['GET', 'POST'])    
