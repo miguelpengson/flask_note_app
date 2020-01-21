@@ -1,3 +1,4 @@
 ## Study of Flask Basics, Forms, Package Structure, Database
 
-[Chikinita](http://chikinita.com)
+
+[Chikinita.com](http://chikinita.com)
