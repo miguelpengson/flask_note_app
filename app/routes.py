@@ -25,10 +25,6 @@ def login():
     form = LoginForm()
     return render_template('login.html', title='Login', form=form)
 
-
-
-
-
 @app.route("/note/new", methods=['GET', 'POST'])    
 def new_note():
     form = NoteForm()
